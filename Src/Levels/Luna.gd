@@ -36,6 +36,7 @@ var shield = false
 var powerup_flag = false as bool
 var zoomin = true as bool
 var texture_rewinding_pressed = false
+var delta_t
 
 func _ready():
 	Events.connect_signal("pickup", self, "increase_potential")
@@ -55,6 +56,7 @@ func _ready():
 
 	
 func _physics_process(delta):
+	delta_t = delta
 	if lunaRB:
 		luna_control(delta)
 		handle_rewind_function()
@@ -269,6 +271,8 @@ func luna_control(delta):
 			redirect_powerup()
 			#update_energy_bar()
 			potential_energy -= 99
+			get_node("RigidBody2D/CanvasLayer/touch").scale = Vector2(1,1)
+			get_node("RigidBody2D/CanvasLayer/touch").rect_global_position = Vector2(0,0)
 	if Input.is_action_just_pressed("ADD_FUEL"):
 		potential_energy = 250
 	if Input.is_action_just_pressed("Shield"):
@@ -344,4 +348,16 @@ func _on_Zoom_tween_all_completed():
 	zoomin = false
 
 
+func _on_Area2D_input_event(viewport, event, shape_idx):
+	if event is InputEventScreenTouch:
+		if event.pressed == true:
+			lunaRB.linear_velocity -= lunaRB.linear_velocity/50
 
+
+func _on_Area2D2_input_event(viewport, event, shape_idx):
+	if event is InputEventScreenTouch:
+		if event.pressed == true:
+			if potential_energy > 0:
+				lunaRB.linear_velocity += lunaRB.linear_velocity/50
+				potential_energy -= 1
+				camera.shake(delta_t+1, 8, 6)

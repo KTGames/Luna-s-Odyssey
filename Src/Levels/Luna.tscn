@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Src/Levels/Luna.gd" type="Script" id=1]
 [ext_resource path="res://Src/Levels/Camera2D.gd" type="Script" id=2]
@@ -78,7 +78,10 @@ animations = [ {
 "speed": 6.0
 } ]
 
-[sub_resource type="Gradient" id=12]
+[sub_resource type="CircleShape2D" id=12]
+radius = 217.134
+
+[sub_resource type="Gradient" id=13]
 colors = PoolColorArray( 0.45098, 0.486275, 0.678431, 1, 1, 1, 1, 0 )
 
 [node name="Luna" type="Node2D" groups=[
@@ -327,6 +330,33 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="touch" type="Control" parent="RigidBody2D/CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -512.0
+margin_top = -600.0
+margin_right = -512.0
+margin_bottom = -600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Area2D2" type="Area2D" parent="RigidBody2D/CanvasLayer/touch"]
+position = Vector2( 569.655, 3.36737 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/CanvasLayer/touch/Area2D2"]
+position = Vector2( 216.635, 344.596 )
+shape = SubResource( 12 )
+
+[node name="Area2D" type="Area2D" parent="RigidBody2D/CanvasLayer/touch"]
+position = Vector2( 60.5446, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/CanvasLayer/touch/Area2D"]
+position = Vector2( 272.787, 343.536 )
+shape = SubResource( 12 )
+
 [node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
 position = Vector2( -0.0133057, 0.10199 )
 current = true
@@ -352,7 +382,7 @@ texture = ExtResource( 18 )
 [node name="Line2D" type="Line2D" parent="."]
 width = 4.0
 default_color = Color( 0.658824, 0.647059, 0.788235, 1 )
-gradient = SubResource( 12 )
+gradient = SubResource( 13 )
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
@@ -361,4 +391,6 @@ script = ExtResource( 7 )
 [connection signal="pressed" from="RigidBody2D/CanvasLayer/Rewind" to="RigidBody2D/CanvasLayer/Rewind" method="_on_Rewind_pressed"]
 [connection signal="button_up" from="RigidBody2D/CanvasLayer/Shield" to="RigidBody2D/CanvasLayer/Shield" method="_on_Shield_button_up"]
 [connection signal="button_up" from="RigidBody2D/CanvasLayer/Redirect" to="RigidBody2D/CanvasLayer/Redirect" method="_on_TextureButton_button_up"]
+[connection signal="input_event" from="RigidBody2D/CanvasLayer/touch/Area2D2" to="." method="_on_Area2D2_input_event"]
+[connection signal="input_event" from="RigidBody2D/CanvasLayer/touch/Area2D" to="." method="_on_Area2D_input_event"]
 [connection signal="tween_all_completed" from="RigidBody2D/Camera2D/Zoom" to="." method="_on_Zoom_tween_all_completed"]
