@@ -1,0 +1,68 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Src/Menu/AudioPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sounds/Menu/abs-confirm-6-verbed.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Sounds/Menu/abs-confirm-6.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sounds/Menu/abs-confirm-1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Assets/Sounds/Music/loading.wav" type="AudioStream" id=5]
+[ext_resource path="res://Assets/Sounds/Menu/abs-cancel-6.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/Sounds/Music/menu.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Sounds/SFX/Retro Explosion Long 02.wav" type="AudioStream" id=8]
+[ext_resource path="res://Assets/Sounds/SFX/abs-popup-2.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Assets/Sounds/Music/in-the-wreckage.wav" type="AudioStream" id=10]
+
+
+[node name="AudioPlayer" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="MenuSettingConfirm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -16.0
+mix_target = 2
+bus = "Sound"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+mix_target = 1
+bus = "Music"
+
+[node name="MenuPlayConfirm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -16.0
+mix_target = 2
+bus = "Sound"
+
+[node name="MenuChangeSetting" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -18.0
+mix_target = 2
+bus = "Sound"
+
+[node name="MenuCancel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+volume_db = -16.0
+mix_target = 2
+bus = "Sound"
+
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+mix_target = 1
+bus = "Music"
+
+[node name="Explosion" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -12.0
+mix_target = 1
+bus = "Sound"
+
+[node name="Pickup" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -18.0
+mix_target = 1
+bus = "Sound"
+
+[node name="Intro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = -20.0
+mix_target = 1
+bus = "Music"

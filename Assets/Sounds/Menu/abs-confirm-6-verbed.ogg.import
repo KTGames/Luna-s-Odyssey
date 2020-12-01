@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/abs-confirm-6-verbed.ogg-03d51c148705ccd96cc5033dc71426fa.oggstr"
+
+[deps]
+
+source_file="res://Assets/Sounds/Menu/abs-confirm-6-verbed.ogg"
+dest_files=[ "res://.import/abs-confirm-6-verbed.ogg-03d51c148705ccd96cc5033dc71426fa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

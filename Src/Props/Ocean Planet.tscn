@@ -1,0 +1,126 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Assets/Textures/Planets/Barren2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/Planets/Barren3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Planets/Ocean1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Planets/Ice1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Planets/Ice3.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Planets/Ice.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Planets/Barren.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/Planets/Barren1.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/Planets/Desert3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/Planets/Ice2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/Planets/Desert1.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/Planets/Desert2.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Textures/Planets/Ocean2.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Textures/Planets/Desert.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Textures/Planets/Ocean3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Textures/Planets/Ocean.png" type="Texture" id=16]
+[ext_resource path="res://Src/Levels/Moon.gd" type="Script" id=17]
+[ext_resource path="res://Src/Levels/Planet.gd" type="Script" id=18]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 60.0
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 3 ), ExtResource( 13 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 7.5
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 25.0
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 25.0
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 14 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Ocean Planet" type="Node2D"]
+position = Vector2( -10708.4, 2535.93 )
+script = ExtResource( 18 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mode = 1
+mass = 750.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="RigidBody2D/CollisionShape2D"]
+scale = Vector2( 2.5, 2.5 )
+frames = SubResource( 2 )
+playing = true
+
+[node name="Moon3" type="Node2D" parent="."]
+position = Vector2( -1.32703, 190.794 )
+script = ExtResource( 17 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Moon3"]
+mass = 250.0
+linear_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon3/RigidBody2D"]
+shape = SubResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Moon3/RigidBody2D/CollisionShape2D"]
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 4 )
+
+[node name="Moon" type="Node2D" parent="."]
+position = Vector2( 0.000976563, 453.997 )
+script = ExtResource( 17 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Moon"]
+position = Vector2( -0.267334, 0.0852051 )
+mass = 400.0
+linear_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon/RigidBody2D"]
+shape = SubResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Moon/RigidBody2D/CollisionShape2D"]
+frames = SubResource( 6 )
+
+[node name="Moon2" type="Node2D" parent="."]
+position = Vector2( -2.67969, 781.249 )
+script = ExtResource( 17 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Moon2"]
+position = Vector2( 0.407959, 0.203613 )
+mass = 400.0
+linear_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon2/RigidBody2D"]
+shape = SubResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Moon2/RigidBody2D/CollisionShape2D"]
+modulate = Color( 0.772549, 0.427451, 0.384314, 1 )
+frames = SubResource( 8 )

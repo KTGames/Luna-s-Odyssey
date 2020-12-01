@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Retro Explosion Long 02.wav-e56302cda40a1560ed158469e4e90982.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/SFX/Retro Explosion Long 02.wav"
+dest_files=[ "res://.import/Retro Explosion Long 02.wav-e56302cda40a1560ed158469e4e90982.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

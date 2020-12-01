@@ -1,0 +1,317 @@
+[gd_scene load_steps=37 format=2]
+
+[ext_resource path="res://Src/Levels/Level 3.gd" type="Script" id=1]
+[ext_resource path="res://Src/Levels/Luna.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Levels/Background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Shaders/circleglow.shader" type="Shader" id=4]
+[ext_resource path="res://Src/Levels/Tundera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/misc/Warning.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Src/misc/Pickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Menu/panel-5.png" type="Texture" id=8]
+[ext_resource path="res://Src/Levels/Planet.gd" type="Script" id=9]
+[ext_resource path="res://Assets/Textures/Planets/Ice1.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/Planets/Ice3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/Planets/Ice.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant2.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Textures/Layer2.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Textures/Planets/Barren1.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Textures/Planets/Barren2.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Textures/Planets/Ice2.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Textures/Planets/Barren3.png" type="Texture" id=21]
+[ext_resource path="res://Src/Levels/Moon.gd" type="Script" id=22]
+[ext_resource path="res://Src/Props/Asteroid Field.gd" type="Script" id=23]
+[ext_resource path="res://Src/Props/WormholeEnd.gd" type="Script" id=24]
+[ext_resource path="res://Assets/Textures/Planets/Barren.png" type="Texture" id=25]
+[ext_resource path="res://Src/Props/Wormhole.tscn" type="PackedScene" id=26]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float angle_degrees;
+uniform float strength : hint_range(0,1, 0.0001);
+
+//	Directional Blur Shader
+
+vec4 dirBlur(sampler2D sampler, vec2 uv, vec2 dir) {
+	// Change the number of samples for better quality at the cost of performance
+	int samples = 30;
+	vec4 l = vec4(0);
+	float delta = 1.0 / float(samples);
+	for(float i = -1.0; i <= 1.0; i += delta)
+    {
+        l += texture(sampler, uv - vec2(dir.x * i, dir.y * i)).rgba;
+    }
+	return vec4(l*delta*0.5);
+}
+
+
+void fragment(){
+	vec2 blur_vector = vec2(cos(radians(angle_degrees)),sin(radians(angle_degrees)))*strength;
+	COLOR=dirBlur(TEXTURE, UV, blur_vector);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/angle_degrees = 0.0
+shader_param/strength = 0.002
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 21 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 24.5
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 16 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = ExtResource( 4 )
+shader_param/color = Color( 0.490196, 0.129412, 0.890196, 1 )
+shader_param/speed = 3.52
+shader_param/ring_duration = 11.613
+shader_param/brightness = 0.457
+shader_param/fade = 1.68
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 121.5
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 20 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 40.0
+
+[node name="Level1" type="Node2D"]
+position = Vector2( 96.7802, -335.202 )
+script = ExtResource( 1 )
+
+[node name="Luna" parent="." instance=ExtResource( 2 )]
+position = Vector2( -280.243, 1295.82 )
+
+[node name="AnimatedSprite" parent="Luna/RigidBody2D/CanvasLayer/PUD/HBoxContainer/TextureRect" index="0"]
+frame = 3
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="ForegroundStars" type="ParallaxBackground" parent="Background"]
+follow_viewport_scale = 2.0
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ForegroundStars"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Sprite" type="TextureRect" parent="Background/ForegroundStars/ParallaxLayer"]
+texture = ExtResource( 17 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ForergroundStars" type="ParallaxBackground" parent="Background"]
+layer = -50
+follow_viewport_scale = 3.0
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ForergroundStars"]
+motion_scale = Vector2( 1.2, 1.2 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Sprite" type="TextureRect" parent="Background/ForergroundStars/ParallaxLayer"]
+modulate = Color( 0.439216, 0.439216, 0.439216, 1 )
+material = SubResource( 2 )
+margin_right = 960.0
+margin_bottom = 540.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 17 )
+stretch_mode = 2
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YSort" type="YSort" parent="Background"]
+
+[node name="Barren Planet" type="Node2D" parent="."]
+position = Vector2( 87.251, 966.436 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Barren Planet"]
+position = Vector2( 0.00388336, 0.035675 )
+frames = SubResource( 3 )
+frame = 1
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Barren Planet"]
+position = Vector2( 0.0640106, -0.0138779 )
+mode = 1
+mass = 500.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barren Planet/RigidBody2D"]
+position = Vector2( -0.0258179, -0.0373535 )
+shape = SubResource( 4 )
+
+[node name="Gas Giant" type="Node2D" parent="."]
+position = Vector2( 2670.24, 988.844 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Gas Giant"]
+position = Vector2( 0.00388336, 0.035675 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 5 )
+frame = 2
+playing = true
+
+[node name="Shader" type="AnimatedSprite" parent="Gas Giant/AnimatedSprite"]
+modulate = Color( 1, 1, 1, 0.294118 )
+show_behind_parent = true
+material = SubResource( 6 )
+position = Vector2( -0.373108, -0.0150452 )
+scale = Vector2( 1.11132, 1.11132 )
+frames = SubResource( 5 )
+frame = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Gas Giant"]
+position = Vector2( 0.0640106, -0.0138779 )
+mode = 1
+mass = 2000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gas Giant/RigidBody2D"]
+visible = false
+position = Vector2( -0.0258179, -0.0373535 )
+shape = SubResource( 7 )
+
+[node name="Moon" type="Node2D" parent="Gas Giant"]
+position = Vector2( -16.7994, 531.774 )
+script = ExtResource( 22 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Gas Giant/Moon"]
+position = Vector2( -0.318541, 0.481506 )
+mass = 500.0
+can_sleep = false
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Gas Giant/Moon/RigidBody2D"]
+frames = SubResource( 8 )
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gas Giant/Moon/RigidBody2D"]
+shape = SubResource( 9 )
+
+[node name="Tundera" parent="." instance=ExtResource( 5 )]
+position = Vector2( 826.765, 935.094 )
+
+[node name="Asteroid Field" type="Node2D" parent="."]
+script = ExtResource( 23 )
+
+[node name="TextureRect" type="TextureRect" parent="Asteroid Field"]
+margin_left = -1014.0
+margin_top = -168.0
+margin_right = 4763.0
+margin_bottom = 277.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Asteroid Field"]
+margin_left = -997.0
+margin_top = 1727.0
+margin_right = 4771.0
+margin_bottom = 2172.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Asteroid Field"]
+margin_left = -986.0
+margin_top = -67.0
+margin_right = -580.0
+margin_bottom = 2172.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Asteroid Field"]
+margin_left = 4222.0
+margin_right = 4763.0
+margin_bottom = 2172.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pickups" type="YSort" parent="."]
+show_behind_parent = true
+position = Vector2( 1819.89, 649.974 )
+scale = Vector2( 0.247725, 0.428423 )
+z_as_relative = false
+sort_enabled = false
+
+[node name="Pickup3" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( 1823.03, 815.805 )
+scale = Vector2( 4.03673, 2.33414 )
+
+[node name="Pickup4" parent="Pickups" instance=ExtResource( 7 )]
+position = Vector2( -5537.68, 534.63 )
+scale = Vector2( 4.03673, 2.33414 )
+
+[node name="Wormholes" type="Node2D" parent="."]
+position = Vector2( -2, 0 )
+
+[node name="Level End" type="Area2D" parent="Wormholes" groups=[
+"Wormhole",
+]]
+position = Vector2( 3781.47, 1019.9 )
+script = ExtResource( 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wormholes/Level End"]
+shape = SubResource( 10 )
+
+[node name="Level End" parent="Wormholes/Level End" instance=ExtResource( 26 )]
+position = Vector2( -0.114258, -0.366455 )
+rotation = -1.82815
+
+[node name="Warning" parent="Wormholes/Level End" instance=ExtResource( 6 )]
+position = Vector2( -0.114258, -0.366455 )
+scale = Vector2( 1, 1 )
+[connection signal="body_entered" from="Wormholes/Level End" to="Wormholes/Level End" method="_on_Level_End_body_entered"]
+
+[editable path="Luna"]

@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Font/score_font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Assets/Textures/Star1/star8.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Star1/star3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Star1/star5.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Star1/star1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Star1/star6.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Star1/star4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/Star1/star2.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/Star1/star7.png" type="Texture" id=9]
+[ext_resource path="res://Src/misc/add_score.gd" type="Script" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "default"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.960784, 0, 0.196078 ), Color( 0.180392, 1, 0.152941, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.2, 0.2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 60 ), Vector2( 0, 64 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AnimatedSprite:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AnimatedSprite:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("AnimatedSprite:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("AnimatedSprite:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 2 ) ],
+"loop": false,
+"name": "default",
+"speed": 16.0
+} ]
+
+[node name="add_score" type="Position2D"]
+position = Vector2( 0, 60 )
+scale = Vector2( 0.2, 0.2 )
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 0.960784, 0, 0.196078 )
+margin_right = 222.0
+margin_bottom = 142.0
+custom_fonts/font = ExtResource( 1 )
+text = "+ 1000"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "default"
+anims/default = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 195.013, 20.9227 )
+scale = Vector2( 3, 3 )
+frames = SubResource( 2 )
+frame = 1
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

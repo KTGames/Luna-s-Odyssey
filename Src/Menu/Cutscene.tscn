@@ -1,0 +1,1770 @@
+[gd_scene load_steps=83 format=2]
+
+[ext_resource path="res://Assets/Textures/Layer1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/Layer2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Planets/Barren.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Planets/Barren1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Planets/Barren2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Planets/Forest1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Planets/Forrest2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/Planets/Forrest3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/Planets/Forest3.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/Planets/Forest2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Textures/Planets/Nebula4.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/Planets/Forest.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Textures/Planets/Forrest.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Textures/Planets/Forrest1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Textures/Planets/Nebula1.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Textures/Planets/Barren3.png" type="Texture" id=16]
+[ext_resource path="res://Src/Shaders/actualwarpeffectotheroneislikeashockwave.tres" type="Material" id=17]
+[ext_resource path="res://Src/Props/BlinkeyStar.gd" type="Script" id=18]
+[ext_resource path="res://Assets/Textures/Star1/star3.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Textures/Star1/star1.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Textures/Star1/star4.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Textures/Star1/star6.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Textures/Star1/star7.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Textures/Star1/star2.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Textures/Star1/star5.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Textures/Star1/star8.png" type="Texture" id=26]
+[ext_resource path="res://Src/Levels/Planet.gd" type="Script" id=27]
+[ext_resource path="res://Src/Props/BlinkierStar.gd" type="Script" id=28]
+[ext_resource path="res://Assets/Textures/Star2/star1.png" type="Texture" id=29]
+[ext_resource path="res://Assets/Textures/Star2/star2.png" type="Texture" id=30]
+[ext_resource path="res://Assets/Textures/Comet/Comet5.png" type="Texture" id=31]
+[ext_resource path="res://Assets/Textures/Star2/star3.png" type="Texture" id=32]
+[ext_resource path="res://Assets/Textures/Comet/Comet2.png" type="Texture" id=33]
+[ext_resource path="res://Assets/Textures/Comet/Comet6.png" type="Texture" id=34]
+[ext_resource path="res://Assets/Textures/Star2/star4.png" type="Texture" id=35]
+[ext_resource path="res://Assets/Textures/Comet/Comet1.png" type="Texture" id=36]
+[ext_resource path="res://Assets/Textures/Comet/Comet3.png" type="Texture" id=37]
+[ext_resource path="res://Assets/Textures/Star2/star7.png" type="Texture" id=38]
+[ext_resource path="res://Assets/Textures/Comet/Comet8.png" type="Texture" id=39]
+[ext_resource path="res://Assets/Textures/Comet/Comet4.png" type="Texture" id=40]
+[ext_resource path="res://Assets/Textures/Star2/star5.png" type="Texture" id=41]
+[ext_resource path="res://Assets/Textures/Comet/Comet7.png" type="Texture" id=42]
+[ext_resource path="res://Assets/Textures/Star2/star6.png" type="Texture" id=43]
+[ext_resource path="res://Src/Props/CutsceneMoon.gd" type="Script" id=44]
+[ext_resource path="res://Src/Menu/Cutscene.gd" type="Script" id=45]
+[ext_resource path="res://Src/Levels/Wormholes.gd" type="Script" id=46]
+[ext_resource path="res://Src/Props/Wormhole.tres" type="Material" id=47]
+[ext_resource path="res://Assets/Textures/Stylized_17_Broken_Ice_basecolor.jpg" type="Texture" id=48]
+[ext_resource path="res://Src/Pixel.tscn" type="PackedScene" id=50]
+[ext_resource path="res://Src/Shaders/warpeffect.tres" type="Material" id=53]
+[ext_resource path="res://Src/Menu/WarpScene.gd" type="Script" id=54]
+[ext_resource path="res://Assets/perlin-noise-texture.png" type="Texture" id=55]
+[ext_resource path="res://Assets/Textures/light_shadow_light.png" type="Texture" id=56]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 73.3344
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 25.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 40.0
+
+[sub_resource type="Animation" id=6]
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 360.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "anim"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 3716.97, 1065.73 ), Vector2( 3776.43, 1083.19 ), Vector2( 3815.13, 1070.45 ), Vector2( 3833.54, 1035.06 ), Vector2( 3826.93, 1002.02 ), Vector2( 3797.67, 998.245 ), Vector2( 3770.3, 1019.95 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.6, 0.8, 1.1, 1.2, 1.201, 1.3, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.8, 0.8 ), Vector2( 0.5, 3.5 ), Vector2( 2, 0.5 ), Vector2( 0.5, 0.5 ), Vector2( 1, 1 ), Vector2( 0.3, 0.3 ), Vector2( 0.15, 0.15 ), Vector2( 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Shader" id=8]
+code = "shader_type canvas_item;
+
+uniform float strength = 200.0;
+uniform float out_slope = -10.0;
+uniform float in_slope = 80.0;
+uniform float intersect_dist = 0.2;
+uniform float intersect_mult = 4.0;
+uniform vec4 color_mult = vec4(1.0, 1.0, 1.0, 1.0);
+
+vec2 tex_center_in_screen_uv(vec2 tex_uv, vec2 screen_uv, vec2 texture_pixel_size, vec2 screen_pixel_size) {
+	vec2 dist_tex = vec2(0.5, 0.5) - tex_uv;
+	vec2 dist_pixel = dist_tex / texture_pixel_size;
+	vec2 dist_screen = dist_pixel * screen_pixel_size;
+	dist_screen.y *= -1.0;
+	return screen_uv + dist_screen;
+}
+
+void fragment() {
+		vec2 uv = UV;
+		vec2 screen_uv = SCREEN_UV;
+		vec2 tex_size = TEXTURE_PIXEL_SIZE;
+		vec2 screen_size = SCREEN_PIXEL_SIZE;
+		vec2 center_tex_screen_uv = tex_center_in_screen_uv(uv, screen_uv, tex_size, screen_size);
+		float aspect = SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
+	
+		vec2 rel = (uv - vec2(0.5, 0.5));
+		float angle = length(rel)*strength;
+		angle = fract(angle / (2.0*3.14159265)) * (2.0 * 3.14159265);
+	
+		mat2 rot = mat2(vec2(cos(angle), -sin(angle)), vec2(sin(angle), cos(angle)));
+		vec2 coord = screen_uv - center_tex_screen_uv;
+	rel = vec2(coord.x * aspect, coord.y) * rot;
+	vec2 final_uv = clamp(vec2((rel.x/aspect) + center_tex_screen_uv.x, rel.y + center_tex_screen_uv.y), vec2(0,0), vec2(1,1));
+
+		vec4 final_color = textureLod(SCREEN_TEXTURE, final_uv, 0.0);
+	
+		float dist_center = length(uv - vec2(0.5, 0.5));
+	
+		vec2 tex_uv = UV;
+		tex_uv = (tex_uv = vec2(0.5, 0.5)) * rot;
+		tex_uv = clamp(tex_uv + vec2(0.5,0.5), vec2(0,0), vec2(1,1));
+		vec4 tex_color = textureLod(TEXTURE, tex_uv, 0.0) * 2.0;
+		final_color = mix(tex_color, final_color, dist_center*4.0);
+	
+		float mult = 1.0;
+		float b1 = intersect_mult - (out_slope * intersect_dist);
+		float b2 = intersect_mult - (in_slope * intersect_dist);
+	
+		if (dist_center >= intersect_dist) {
+			mult = out_slope * dist_center + b1;
+			mult = clamp(mult, 1.0, intersect_mult);
+			final_color *= mult;
+		}
+		else {
+			mult = in_slope * dist_center + b2;
+			mult = clamp(mult, 0.0, intersect_mult);
+			final_color *= mult;
+		}
+	
+		final_color *= color_mult;
+		
+		final_color.a = 1.0;
+	
+		vec4 normal_color = textureLod(SCREEN_TEXTURE, SCREEN_UV, 0.0);
+		//float mixer = smoothstep(0.3, 0.5, dist_center);
+		float mixer = clamp(dist_center*2.0, 0.0, 1.0);
+		final_color = mix(final_color, normal_color, mixer);
+	
+		COLOR.rgba = final_color;
+}"
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = SubResource( 8 )
+shader_param/strength = 7.26514
+shader_param/out_slope = -8.45478
+shader_param/in_slope = 106.737
+shader_param/intersect_dist = 0.25
+shader_param/intersect_mult = 3.14
+shader_param/color_mult = Plane( 0.85, 0.991, 1, 0.5 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ null, ExtResource( 20 ), ExtResource( 24 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 25 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 26 ), null ],
+"loop": false,
+"name": "default",
+"speed": 9.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ null, ExtResource( 29 ), ExtResource( 30 ), ExtResource( 32 ), ExtResource( 35 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 38 ), null ],
+"loop": false,
+"name": "default",
+"speed": 9.0
+} ]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 36 ), ExtResource( 33 ), ExtResource( 37 ), ExtResource( 40 ), ExtResource( 31 ), ExtResource( 34 ), ExtResource( 42 ), ExtResource( 39 ) ],
+"loop": false,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="Animation" id=13]
+length = 45.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("YSort/Actors/Barren Planet:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 6, 9, 29.4, 31.9, 32.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.505882 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("YSort/Actors/Barren Planet/Moon:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 6, 10 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("YSort/Actors/Wormholes/Wormhole:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 16.9, 19.9, 39.4, 39.9, 44.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("YSort/Stills:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 9, 12, 39.2, 39.9, 44.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("YSort/Actors/Wormholes/WormholeEnter/WormholeEnter:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 16.9, 19.9, 39.5, 39.9, 44.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0.756863 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("YSort/Actors/Wormholes/WormholeEnter/WormholeEnter:material:shader_param/strength")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 18.4, 21.9, 28.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 3.064, 0.0, 23.0, 50.0 ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("YSort/Actors/Wormholes/WormholeEnter")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 20 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "Mass_set"
+}, {
+"args": [ 2000 ],
+"method": "Mass_set"
+} ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("YSort/Actors/Wormholes/Wormhole:material:shader_param/strength")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 18.4, 20.4, 21.8, 25.4, 26.2, 28.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 7.26514, 0.0, 23.0, 23.0, 5.0, 23.0, 50.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("YSort/Actors/Wormholes/Wormhole:scale")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 19.3, 20.3, 20.9, 21.5, 23.5, 26.2, 28.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.247522, 0.414264 ), Vector2( 0.247725, 0.428423 ), Vector2( 0.248, 0.219 ), Vector2( 0.297, 0.387 ), Vector2( 0.362, 0.481 ), Vector2( 0.247725, 0.428423 ), Vector2( 0.248, 0.428 ), Vector2( 0.744, 1.248 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("YSort/Actors/Wormholes/Wormhole:material:shader_param/out_slope")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 20.7, 25.7, 28.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -8.45478, 12.0, -17.22, -8.45478 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("YSort/Actors/Wormholes/Wormhole:material:shader_param/in_slope")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.1, 18.6, 25.7, 28.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 106.737, 109.0, 58.0, 103.972 ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("YSort/Actors/Wormholes/Wormhole:material:shader_param/intersect_dist")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.1, 25.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.25, 0.25 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("YSort/Actors/Barren Planet:position")
+tracks/12/interp = 2
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 29.4, 30, 30.7, 31.5, 32.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 206.533, 190.819 ), Vector2( 276.533, 202.819 ), Vector2( 344.533, 206.019 ), Vector2( 483.133, 180.392 ), Vector2( 650.533, 160.819 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("YSort/Actors/Barren Planet:scale")
+tracks/13/interp = 2
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 29.4, 30.2, 31.2, 31.8, 32.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.015, 1.13 ), Vector2( 2.18, 1 ), Vector2( 1.006, 2 ), Vector2( 0, 0 ) ]
+}
+tracks/14/type = "method"
+tracks/14/path = NodePath(".")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"values": [  ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("YSort/ParallaxBackground/ParallaxLayer:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 3, 39.5, 40.1, 44.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("YSort/Actors/Wormholes:position")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 695.32, 131.542 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("ColorRect:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("WarpScene:visible")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 0, 44.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("WarpScene/CanvasLayer/YSort:visible")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 45 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("YSort/Actors/Barren Planet/Moon:position")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("YSort/ForegroundStars/ParallaxLayer:modulate")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 2.1, 4, 39.4, 39.9, 44.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Shader" id=14]
+code = "shader_type canvas_item;
+
+uniform bool apply = true;
+uniform float amount = 1.0;
+uniform sampler2D offset_texture : hint_white;
+
+void fragment() {
+	vec4 texture_color = texture(TEXTURE, UV);
+	vec4 color = texture_color;
+	
+	if (apply == true) {
+		float adjusted_amount = amount * texture(offset_texture, UV).r / 100.0;
+		color.r = texture(TEXTURE, vec2(UV.x + adjusted_amount, UV.y)).r;
+		color.g = texture(TEXTURE, UV).g;
+		color.b = texture(TEXTURE, vec2(UV.x - adjusted_amount, UV.y)).b;
+	}
+	COLOR = color;
+}"
+
+[sub_resource type="ShaderMaterial" id=15]
+shader = SubResource( 14 )
+shader_param/apply = true
+shader_param/amount = 54.0
+shader_param/offset_texture = ExtResource( 55 )
+
+[sub_resource type="Shader" id=16]
+code = "shader_type canvas_item;
+
+uniform vec2 center;
+uniform float force;
+uniform float size;
+uniform float thickness;
+
+void fragment() {
+	float ratio = SCREEN_PIXEL_SIZE.x / SCREEN_PIXEL_SIZE.y;
+	vec2 scaledUV = (SCREEN_UV - vec2(0.5,0.0)) / vec2(ratio, 1.0) + vec2(0.5,0.0);
+	float mask = (1.0 - smoothstep(size-0.1, size, length(scaledUV - center))) *
+		smoothstep(size-thickness-0.1, size-thickness, length(scaledUV - center));
+	vec2 disp = normalize(scaledUV - center) * force * mask;
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
+	//COLOR.rgb = vec3(mask);
+}"
+
+[sub_resource type="ShaderMaterial" id=17]
+shader = SubResource( 16 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/force = 0.0
+shader_param/size = 0.0
+shader_param/thickness = 0.0
+
+[sub_resource type="Shader" id=18]
+code = "shader_type canvas_item;
+
+uniform vec2 center;
+uniform float force;
+
+void fragment(){
+	vec2 disp = normalize(SCREEN_UV - center) * force;
+	COLOR = vec4(SCREEN_UV - disp, 0.0, 1.0);
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV - disp);
+}"
+
+[sub_resource type="ShaderMaterial" id=19]
+shader = SubResource( 18 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/force = 0.5
+
+[sub_resource type="ShaderMaterial" id=20]
+shader = SubResource( 18 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/force = 0.1
+
+[sub_resource type="ShaderMaterial" id=21]
+shader = SubResource( 18 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/force = 0.5
+
+[sub_resource type="ShaderMaterial" id=22]
+shader = SubResource( 18 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/force = 0.4
+
+[sub_resource type="ShaderMaterial" id=23]
+shader = SubResource( 18 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/force = 0.6
+
+[sub_resource type="Animation" id=24]
+resource_name = "default"
+length = 20.0
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CanvasLayer/YSort/Warp Control:material:shader_param/force")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 20 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.265, -0.25, 0, 0.25, 0, 0.455, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 20 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/force")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 20 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/force")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0.2, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 20 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 20 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/thickness")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 20 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/thickness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0.8, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 20 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, -180, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 10.1, 20 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("CanvasLayer/YSort/TextureRect4:material:shader_param/force")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 0.6, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.3, 20 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("CanvasLayer/YSort/Warp Control:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 90, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 9.01452, 20 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("CanvasLayer/YSort/TextureRect5:material:shader_param/force")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 2.6, 4.1, 6.4, 9.6, 13.5, 16.7, 19.3 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("CanvasLayer/YSort/TextureRect6:material:shader_param/force")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 1.4, 3.4, 5.7, 9, 12.1, 15.8, 17.7, 20 )
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer/YSort/TextureRect7:material:shader_param/force")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 0.8, 2.1, 4.7, 7.2, 10.3, 12.9, 14.7, 16.3, 17.2, 18.4, 19.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.1, 0.5, 0.1, 0.5, 0.1, 0.5, 0.1, 0.5, 0.1, 0.5, 0.1, 0.5 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Chromatic Abberation/ShockwaveRotate/Chromatic Abberation2:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "default (copy) 2"
+length = 17.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CanvasLayer/YSort/Warp Control:material:shader_param/force")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.4, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.455, -0.25, 0, 0.25, 0, 0.265, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/force")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/force")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/thickness")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/thickness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0.8, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("CanvasLayer/YSort/TextureRect4:material:shader_param/force")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0.6, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("CanvasLayer/YSort/Warp Control:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("CanvasLayer/YSort/TextureRect5:material:shader_param/force")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("CanvasLayer/YSort/TextureRect6:material:shader_param/force")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer/YSort/TextureRect7:material:shader_param/force")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.5, 0.5 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CanvasLayer/YSort:modulate")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 6, 9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Chromatic Abberation:material:shader_param/amount")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 54.0, 0.0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Chromatic Abberation/ShockwaveRotate/Chromatic Abberation2:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 7.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("../YSort:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 12 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/18/type = "value"
+tracks/18/path = NodePath("../YSort/Stills:modulate")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 9, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/19/type = "value"
+tracks/19/path = NodePath("../YSort/Actors/Wormholes/WormholeEnter/WormholeEnter:modulate")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 9, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.756863 ) ]
+}
+tracks/20/type = "value"
+tracks/20/path = NodePath("../YSort/ForegroundStars/ParallaxLayer/Stars:modulate")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 9, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/21/type = "value"
+tracks/21/path = NodePath("../YSort/Actors/Wormholes:position")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 0, 9, 16.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 695.32, 131.542 ), Vector2( 470.813, 270.522 ), Vector2( 695.32, 131.542 ) ]
+}
+tracks/22/type = "value"
+tracks/22/path = NodePath("../YSort/Actors/Wormholes/Wormhole:modulate")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 9, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath(".:modulate")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/24/type = "value"
+tracks/24/path = NodePath("../ColorRect:material:shader_param/cutoff")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 14, 17 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/25/type = "method"
+tracks/25/path = NodePath("..")
+tracks/25/interp = 1
+tracks/25/loop_wrap = true
+tracks/25/imported = false
+tracks/25/enabled = true
+tracks/25/keys = {
+"times": PoolRealArray( 17 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "load_da_game"
+} ]
+}
+tracks/26/type = "value"
+tracks/26/path = NodePath("../ColorRect:visible")
+tracks/26/interp = 1
+tracks/26/loop_wrap = true
+tracks/26/imported = false
+tracks/26/enabled = true
+tracks/26/keys = {
+"times": PoolRealArray( 0, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/27/type = "value"
+tracks/27/path = NodePath("../YSort/ParallaxBackground/ParallaxLayer:modulate")
+tracks/27/interp = 1
+tracks/27/loop_wrap = true
+tracks/27/imported = false
+tracks/27/enabled = true
+tracks/27/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/28/type = "value"
+tracks/28/path = NodePath("Chromatic Abberation:modulate")
+tracks/28/interp = 1
+tracks/28/loop_wrap = true
+tracks/28/imported = false
+tracks/28/enabled = true
+tracks/28/keys = {
+"times": PoolRealArray( 0, 9.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/29/type = "value"
+tracks/29/path = NodePath(".:visible")
+tracks/29/interp = 1
+tracks/29/loop_wrap = true
+tracks/29/imported = false
+tracks/29/enabled = true
+tracks/29/keys = {
+"times": PoolRealArray( 0, 7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/30/type = "value"
+tracks/30/path = NodePath("CanvasLayer/YSort:visible")
+tracks/30/interp = 1
+tracks/30/loop_wrap = true
+tracks/30/imported = false
+tracks/30/enabled = true
+tracks/30/keys = {
+"times": PoolRealArray( 0, 0.001, 9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=26]
+length = 6.0
+loop = true
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("CanvasLayer/YSort/Warp Control:material:shader_param/force")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( 0.4, -0.25, 0, 0.25, 0, 0.3, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.45, -0.25, 0, 0.25, 0, 0.455, -0.25, 0, 0.25, 0, 0.45, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3, 6 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/force")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( 0.4, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/force")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 0.4, -0.25, 0, 0.25, 0, 0.2, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 6 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 0.45, -0.25, 0, 0.25, 0, 0.455, -0.25, 0, 0.25, 0, 0.4, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 2.9, 6 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:material:shader_param/thickness")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0.1, 4.4, 6 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("Chromatic Abberation/ShockwaveRotate:material:shader_param/thickness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( 0.235229, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.235, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3, 6.1 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:rect_rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("CanvasLayer/YSort/TextureRect4:material:shader_param/force")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 0.252, -0.25, 0, 0.25, 0, 0.32, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 6 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("CanvasLayer/YSort/Warp Control:rect_rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray(  ),
+"times": PoolRealArray(  )
+}
+tracks/10/type = "bezier"
+tracks/10/path = NodePath("CanvasLayer/YSort/TextureRect5:material:shader_param/force")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"points": PoolRealArray( 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3, 6 )
+}
+tracks/11/type = "bezier"
+tracks/11/path = NodePath("CanvasLayer/YSort/TextureRect6:material:shader_param/force")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"points": PoolRealArray( 0.1, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.5, -0.25, 0, 0.25, 0, 0.1, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 3, 4.4, 6 )
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("CanvasLayer/YSort/TextureRect7:material:shader_param/force")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0, 3, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.1, 0.5, 0.1 ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("CanvasLayer/YSort/Warp Control2:material:shader_param/force")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.4, 0.3 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("Chromatic Abberation/ShockwaveRotate/Chromatic Abberation2:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Chromatic Abberation/ShockwaveRotate/ShockwaveModulate:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "reset"
+
+[sub_resource type="Shader" id=28]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+uniform float cutoff : hint_range(0.0, 1.0);
+uniform sampler2D mask : hint_albedo;
+
+void fragment() {
+	float value = texture(mask, UV).r;
+	if (value < cutoff) {
+		COLOR = vec4(COLOR.rgb, 0.0);
+	}
+	else{
+		COLOR = vec4(COLOR.rgb, 1.0);
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=29]
+shader = SubResource( 28 )
+shader_param/cutoff = 0.0
+shader_param/mask = ExtResource( 56 )
+
+[node name="Cutscene" type="Node2D"]
+script = ExtResource( 45 )
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="YSort"]
+follow_viewport_scale = 0.0
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="YSort/ParallaxBackground"]
+modulate = Color( 1, 1, 1, 0 )
+motion_scale = Vector2( 0.5, 0.5 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Space" type="TextureRect" parent="YSort/ParallaxBackground/ParallaxLayer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 1024, 600 )
+texture = ExtResource( 1 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ForegroundStars" type="ParallaxBackground" parent="YSort"]
+follow_viewport_scale = 2.0
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="YSort/ForegroundStars"]
+modulate = Color( 1, 1, 1, 0 )
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Stars" type="TextureRect" parent="YSort/ForegroundStars/ParallaxLayer"]
+modulate = Color( 1, 1, 1, 0.818182 )
+margin_top = 0.943878
+margin_right = 960.0
+margin_bottom = 540.944
+texture = ExtResource( 2 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Actors" type="Node2D" parent="YSort"]
+
+[node name="Barren Planet" type="Node2D" parent="YSort/Actors"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 206.533, 190.819 )
+script = ExtResource( 27 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="DaEarth" type="AnimatedSprite" parent="YSort/Actors/Barren Planet"]
+scale = Vector2( 3, 3 )
+frames = SubResource( 1 )
+frame = 2
+playing = true
+flip_h = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="YSort/Actors/Barren Planet"]
+position = Vector2( 0.0640106, -0.0138779 )
+mode = 1
+mass = 500.0
+linear_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Actors/Barren Planet/RigidBody2D"]
+position = Vector2( -0.0258179, -0.0373535 )
+shape = SubResource( 2 )
+
+[node name="Moon" type="Node2D" parent="YSort/Actors/Barren Planet"]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -15.0647, 314.476 )
+script = ExtResource( 44 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="YSort/Actors/Barren Planet/Moon" groups=[
+"cutscene",
+]]
+position = Vector2( -0.318541, 0.481506 )
+mass = 500.0
+can_sleep = false
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="Luna" type="AnimatedSprite" parent="YSort/Actors/Barren Planet/Moon/RigidBody2D"]
+frames = SubResource( 3 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Actors/Barren Planet/Moon/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="Wormholes" type="Node2D" parent="YSort/Actors"]
+position = Vector2( 695.32, 131.542 )
+
+[node name="WormholeEnter" type="Area2D" parent="YSort/Actors/Wormholes" groups=[
+"Wormhole",
+]]
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Actors/Wormholes/WormholeEnter"]
+shape = SubResource( 5 )
+
+[node name="WormholeEnter" type="Sprite" parent="YSort/Actors/Wormholes/WormholeEnter"]
+modulate = Color( 1, 1, 1, 0 )
+material = ExtResource( 47 )
+position = Vector2( -0.114258, -0.366455 )
+scale = Vector2( 0.247725, 0.428423 )
+texture = ExtResource( 1 )
+
+[node name="Pixel" parent="YSort/Actors/Wormholes/WormholeEnter/WormholeEnter" instance=ExtResource( 50 )]
+modulate = Color( 1, 1, 1, 0.168627 )
+margin_left = -287.019
+margin_top = -208.711
+margin_right = 337.981
+margin_bottom = 226.289
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Actors/Wormholes/WormholeEnter/WormholeEnter"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="YSort/Actors/Wormholes"]
+visible = false
+position = Vector2( 3716.97, 1065.73 )
+rotation = 0.384788
+texture = ExtResource( 3 )
+offset = Vector2( -67.2761, 44.9197 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Actors/Wormholes/Sprite"]
+anims/anim = SubResource( 7 )
+
+[node name="Wormhole" type="Sprite" parent="YSort/Actors/Wormholes"]
+modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 9 )
+position = Vector2( -6.10352e-05, 0 )
+rotation = 1.9843
+scale = Vector2( 0.247522, 0.414264 )
+texture = ExtResource( 1 )
+
+[node name="Pixel" parent="YSort/Actors/Wormholes/Wormhole" instance=ExtResource( 50 )]
+modulate = Color( 1, 1, 1, 0.0823529 )
+use_parent_material = true
+margin_left = -287.019
+margin_top = -208.711
+margin_right = 337.981
+margin_bottom = 226.289
+rect_min_size = Vector2( 625, 435 )
+stretch_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="YSort/Actors/Wormholes/Wormhole"]
+autoplay = "New Anim"
+"anims/New Anim" = SubResource( 6 )
+
+[node name="Stills" type="Node2D" parent="YSort"]
+modulate = Color( 1, 1, 1, 0 )
+
+[node name="Nebula" type="Sprite" parent="YSort/Stills"]
+position = Vector2( 476.656, 383.213 )
+texture = ExtResource( 11 )
+
+[node name="Nebula2" type="Sprite" parent="YSort/Stills"]
+position = Vector2( 87.7803, 133.086 )
+texture = ExtResource( 15 )
+
+[node name="BlinkeyStar" type="AnimatedSprite" parent="YSort/Stills"]
+position = Vector2( 128.693, 151.321 )
+frames = SubResource( 10 )
+frame = 9
+playing = true
+script = ExtResource( 18 )
+
+[node name="Timer" type="Timer" parent="YSort/Stills/BlinkeyStar"]
+
+[node name="BlinkeyStar2" type="AnimatedSprite" parent="YSort/Stills"]
+position = Vector2( 787.514, 153.699 )
+frames = SubResource( 10 )
+frame = 9
+playing = true
+script = ExtResource( 18 )
+
+[node name="Timer" type="Timer" parent="YSort/Stills/BlinkeyStar2"]
+
+[node name="BlinkierStar" type="AnimatedSprite" parent="YSort/Stills"]
+position = Vector2( 227.139, 300.869 )
+frames = SubResource( 11 )
+script = ExtResource( 28 )
+
+[node name="Timer" type="Timer" parent="YSort/Stills/BlinkierStar"]
+
+[node name="BlinkierStar2" type="AnimatedSprite" parent="YSort/Stills"]
+position = Vector2( 623.989, 416.75 )
+frames = SubResource( 11 )
+script = ExtResource( 28 )
+
+[node name="Timer" type="Timer" parent="YSort/Stills/BlinkierStar2"]
+
+[node name="Comet" type="AnimatedSprite" parent="YSort/Stills"]
+position = Vector2( 638.053, 270.973 )
+frames = SubResource( 12 )
+frame = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/default = SubResource( 13 )
+
+[node name="WarpScene" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 54 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlinkierStar3" type="AnimatedSprite" parent="WarpScene"]
+position = Vector2( 623.989, 416.75 )
+frames = SubResource( 11 )
+script = ExtResource( 28 )
+
+[node name="Timer" type="Timer" parent="WarpScene/BlinkierStar3"]
+
+[node name="Chromatic Abberation" type="TextureRect" parent="WarpScene"]
+material = SubResource( 15 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -515.178
+margin_top = -301.059
+margin_right = 508.822
+margin_bottom = 298.941
+rect_min_size = Vector2( 1024, 600 )
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShockwaveRotate" type="TextureRect" parent="WarpScene/Chromatic Abberation"]
+modulate = Color( 1, 1, 1, 0.94902 )
+material = ExtResource( 53 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 1024, 600 )
+rect_pivot_offset = Vector2( 512, 300 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+flip_h = true
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chromatic Abberation2" type="TextureRect" parent="WarpScene/Chromatic Abberation/ShockwaveRotate"]
+material = SubResource( 15 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+rect_min_size = Vector2( 1024, 600 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShockwaveModulate" type="TextureRect" parent="WarpScene/Chromatic Abberation/ShockwaveRotate"]
+modulate = Color( 1, 1, 1, 0.843137 )
+material = SubResource( 17 )
+use_parent_material = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1024.0
+margin_top = -600.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 2048, 1200 )
+rect_pivot_offset = Vector2( 1024, 600 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="WarpScene"]
+
+[node name="YSort" type="YSort" parent="WarpScene/CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.571429 )
+
+[node name="TextureRect5" type="TextureRect" parent="WarpScene/CanvasLayer/YSort"]
+material = SubResource( 19 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 1024, 600 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+flip_h = true
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect6" type="TextureRect" parent="WarpScene/CanvasLayer/YSort"]
+material = SubResource( 20 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 1024, 600 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="WarpScene/CanvasLayer/YSort"]
+material = SubResource( 21 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 1024, 600 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+flip_h = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Warp Control" type="TextureRect" parent="WarpScene/CanvasLayer/YSort"]
+modulate = Color( 1, 1, 1, 0.380392 )
+material = ExtResource( 17 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 1536.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 2048, 1200 )
+rect_pivot_offset = Vector2( 1024, 600 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Warp Control2" type="TextureRect" parent="WarpScene/CanvasLayer/YSort"]
+modulate = Color( 1, 1, 1, 0.380392 )
+material = SubResource( 22 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 2048.0
+margin_bottom = 1200.0
+rect_min_size = Vector2( 2048, 1200 )
+rect_pivot_offset = Vector2( 512, 300 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="WarpScene/CanvasLayer/YSort"]
+modulate = Color( 1, 1, 1, 0.827451 )
+material = SubResource( 23 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 1024, 600 )
+texture = ExtResource( 48 )
+expand = true
+stretch_mode = 1
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WarpScene"]
+playback_speed = 20.0
+anims/default = SubResource( 24 )
+"anims/default (copy)" = SubResource( 25 )
+"anims/default (copy) 2" = SubResource( 25 )
+anims/loop = SubResource( 26 )
+anims/reset = SubResource( 27 )
+blend_times = [ "default", "default", 0.01 ]
+
+[node name="Timer" type="Timer" parent="WarpScene"]
+wait_time = 5.0
+one_shot = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 29 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 1024, 600 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="body_entered" from="YSort/Actors/Wormholes/WormholeEnter" to="YSort/Actors/Wormholes/WormholeEnter" method="_on_WormholeEnter_body_entered"]
+[connection signal="animation_finished" from="YSort/Stills/BlinkeyStar" to="YSort/Stills/BlinkeyStar" method="_on_BlinkeyStar_animation_finished"]
+[connection signal="timeout" from="YSort/Stills/BlinkeyStar/Timer" to="YSort/Stills/BlinkeyStar" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="YSort/Stills/BlinkeyStar2" to="YSort/Stills/BlinkeyStar2" method="_on_BlinkeyStar_animation_finished"]
+[connection signal="timeout" from="YSort/Stills/BlinkeyStar2/Timer" to="YSort/Stills/BlinkeyStar2" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="YSort/Stills/BlinkierStar" to="YSort/Stills/BlinkierStar" method="_on_BlinkierStar_animation_finished"]
+[connection signal="timeout" from="YSort/Stills/BlinkierStar/Timer" to="YSort/Stills/BlinkierStar" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="YSort/Stills/BlinkierStar2" to="YSort/Stills/BlinkierStar2" method="_on_BlinkierStar_animation_finished"]
+[connection signal="timeout" from="YSort/Stills/BlinkierStar2/Timer" to="YSort/Stills/BlinkierStar2" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="WarpScene/BlinkierStar3" to="WarpScene/BlinkierStar3" method="_on_BlinkierStar_animation_finished"]
+[connection signal="timeout" from="WarpScene/BlinkierStar3/Timer" to="WarpScene/BlinkierStar3" method="_on_Timer_timeout"]
+[connection signal="animation_finished" from="WarpScene/AnimationPlayer" to="WarpScene" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="WarpScene/Timer" to="WarpScene" method="_on_Timer_timeout"]

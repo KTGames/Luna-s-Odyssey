@@ -1,0 +1,30 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/Textures/Comet/Comet5.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/Comet/Comet3.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Comet/Comet6.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Comet/Comet7.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Comet/Comet8.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Comet/Comet2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Comet/Comet1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/Comet/Comet4.png" type="Texture" id=8]
+[ext_resource path="res://Src/Props/Comet.gd" type="Script" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ null, ExtResource( 7 ), ExtResource( 6 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 1 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": false,
+"name": "default",
+"speed": 9.0
+} ]
+
+[node name="Comet" type="AnimatedSprite"]
+position = Vector2( 197.625, 95.5262 )
+frames = SubResource( 1 )
+centered = false
+script = ExtResource( 9 )
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+[connection signal="animation_finished" from="." to="." method="_on_Comet_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

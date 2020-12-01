@@ -1,0 +1,347 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Src/Levels/Barren Planet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Src/Props/Wormhole.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Src/Levels/Tundera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Src/Levels/Background.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Src/Levels/Luna.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Src/misc/Warning.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Src/Levels/Planet.gd" type="Script" id=7]
+[ext_resource path="res://Src/Props/WormholeEnd.gd" type="Script" id=8]
+[ext_resource path="res://Src/Levels/Wormholes.gd" type="Script" id=9]
+[ext_resource path="res://Src/Shaders/circleglow.shader" type="Shader" id=12]
+[ext_resource path="res://Assets/Textures/Planets/Ice1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Textures/Planets/Ice3.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Textures/Layer2.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Textures/Planets/Ice.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant2.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Textures/Planets/Ice2.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant1.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant3.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Menu/panel-1.png" type="Texture" id=24]
+[ext_resource path="res://Src/Props/Asteroid Field.gd" type="Script" id=25]
+[ext_resource path="res://Src/Levels/WormholeExit.gd" type="Script" id=26]
+[ext_resource path="res://Src/Levels/Moon.gd" type="Script" id=27]
+[ext_resource path="res://Src/Levels/Level 7.gd" type="Script" id=28]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode blend_mix;
+
+uniform float angle_degrees;
+uniform float strength : hint_range(0,1, 0.0001);
+
+//	Directional Blur Shader
+
+vec4 dirBlur(sampler2D sampler, vec2 uv, vec2 dir) {
+	// Change the number of samples for better quality at the cost of performance
+	int samples = 30;
+	vec4 l = vec4(0);
+	float delta = 1.0 / float(samples);
+	for(float i = -1.0; i <= 1.0; i += delta)
+    {
+        l += texture(sampler, uv - vec2(dir.x * i, dir.y * i)).rgba;
+    }
+	return vec4(l*delta*0.5);
+}
+
+
+void fragment(){
+	vec2 blur_vector = vec2(cos(radians(angle_degrees)),sin(radians(angle_degrees)))*strength;
+	COLOR=dirBlur(TEXTURE, UV, blur_vector);
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/angle_degrees = 0.0
+shader_param/strength = 0.002
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 40.0
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=7]
+shader = ExtResource( 12 )
+shader_param/color = Color( 0.490196, 0.129412, 0.890196, 1 )
+shader_param/speed = 3.52
+shader_param/ring_duration = 11.613
+shader_param/brightness = 0.457
+shader_param/fade = 1.68
+
+[sub_resource type="CircleShape2D" id=8]
+radius = 121.5
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 18 ), ExtResource( 13 ), ExtResource( 21 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 25.0
+
+[node name="Level 7" type="Node2D"]
+script = ExtResource( 28 )
+
+[node name="Luna" parent="." instance=ExtResource( 5 )]
+position = Vector2( 186.32, -91.3677 )
+
+[node name="Background" parent="." instance=ExtResource( 4 )]
+
+[node name="ForegroundStars" type="ParallaxBackground" parent="Background"]
+follow_viewport_scale = 2.0
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ForegroundStars"]
+motion_scale = Vector2( 0.75, 0.75 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Sprite" type="TextureRect" parent="Background/ForegroundStars/ParallaxLayer"]
+texture = ExtResource( 15 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ForergroundStars" type="ParallaxBackground" parent="Background"]
+layer = -50
+follow_viewport_scale = 3.0
+scroll_ignore_camera_zoom = true
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Background/ForergroundStars"]
+motion_scale = Vector2( 1.2, 1.2 )
+motion_mirroring = Vector2( 960, 540 )
+
+[node name="Sprite" type="TextureRect" parent="Background/ForergroundStars/ParallaxLayer"]
+modulate = Color( 0.439216, 0.439216, 0.439216, 1 )
+material = SubResource( 2 )
+margin_right = 960.0
+margin_bottom = 540.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource( 15 )
+stretch_mode = 2
+flip_v = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YSort" type="YSort" parent="Background"]
+
+[node name="Wormholes" type="Node2D" parent="."]
+position = Vector2( 260.248, -435.256 )
+
+[node name="WormholeEnter" type="Area2D" parent="Wormholes" groups=[
+"Wormhole",
+]]
+position = Vector2( 3745.51, 1049.87 )
+script = ExtResource( 9 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wormholes/WormholeEnter"]
+shape = SubResource( 3 )
+
+[node name="WormholeEnter" parent="Wormholes/WormholeEnter" instance=ExtResource( 2 )]
+position = Vector2( -0.114258, -0.366455 )
+rotation = -1.82815
+
+[node name="Warning" parent="Wormholes/WormholeEnter" instance=ExtResource( 6 )]
+position = Vector2( -0.114258, -0.366455 )
+
+[node name="WormholeExit" type="Area2D" parent="Wormholes"]
+position = Vector2( 7865.36, 1164.73 )
+script = ExtResource( 26 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wormholes/WormholeExit"]
+shape = SubResource( 4 )
+
+[node name="Wormhole" parent="Wormholes/WormholeExit" instance=ExtResource( 2 )]
+position = Vector2( -110.987, -70.9219 )
+rotation = -1.82815
+
+[node name="Level End" type="Area2D" parent="Wormholes" groups=[
+"Wormhole",
+]]
+position = Vector2( 7660.92, 2047.95 )
+script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wormholes/Level End"]
+shape = SubResource( 5 )
+
+[node name="Level End" parent="Wormholes/Level End" instance=ExtResource( 2 )]
+position = Vector2( -0.114258, -0.366455 )
+rotation = -1.82815
+
+[node name="Warning" parent="Wormholes/Level End" instance=ExtResource( 6 )]
+position = Vector2( -0.114258, -0.366455 )
+
+[node name="Asteroid Field" type="Node2D" parent="."]
+position = Vector2( -12.6992, -444.472 )
+script = ExtResource( 25 )
+
+[node name="TextureRect" type="TextureRect" parent="Asteroid Field"]
+margin_left = -61.9795
+margin_top = -400.533
+margin_right = 4938.02
+margin_bottom = 14.4673
+texture = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="Asteroid Field"]
+margin_left = -3.98633
+margin_top = 2397.08
+margin_right = 4484.01
+margin_bottom = 2536.08
+texture = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="Asteroid Field"]
+margin_left = -699.0
+margin_top = -10.0
+margin_right = -73.0
+margin_bottom = 2882.0
+texture = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="Asteroid Field"]
+margin_left = 3864.27
+margin_top = 39.4479
+margin_right = 4490.27
+margin_bottom = 2598.45
+texture = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect6" type="TextureRect" parent="Asteroid Field"]
+margin_left = -2622.75
+margin_top = 2585.7
+margin_right = 6796.25
+margin_bottom = 3328.7
+texture = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect7" type="TextureRect" parent="Asteroid Field"]
+margin_left = 9811.94
+margin_top = -5567.65
+margin_right = 12850.9
+margin_bottom = -1367.65
+rect_rotation = 90.0
+texture = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gas Giant" type="Node2D" parent="."]
+position = Vector2( 1787.82, 555.061 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Gas Giant"]
+position = Vector2( 0.00388336, 0.035675 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 6 )
+frame = 3
+playing = true
+
+[node name="Shader" type="AnimatedSprite" parent="Gas Giant/AnimatedSprite"]
+modulate = Color( 1, 1, 1, 0.294118 )
+show_behind_parent = true
+material = SubResource( 7 )
+position = Vector2( -0.373108, -0.0150452 )
+scale = Vector2( 1.11132, 1.11132 )
+frames = SubResource( 6 )
+frame = 1
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Gas Giant"]
+position = Vector2( 0.0640106, -0.0138779 )
+mode = 1
+mass = 2000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gas Giant/RigidBody2D"]
+visible = false
+position = Vector2( -0.0258179, -0.0373535 )
+shape = SubResource( 8 )
+
+[node name="Moon" type="Node2D" parent="Gas Giant"]
+position = Vector2( 7.37085, -513.055 )
+script = ExtResource( 27 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Gas Giant/Moon"]
+position = Vector2( -0.318541, 0.481506 )
+mass = 500.0
+can_sleep = false
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Gas Giant/Moon/RigidBody2D"]
+frames = SubResource( 9 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gas Giant/Moon/RigidBody2D"]
+shape = SubResource( 10 )
+
+[node name="Moon2" type="Node2D" parent="Gas Giant"]
+position = Vector2( 11.5251, 620.036 )
+script = ExtResource( 27 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Gas Giant/Moon2"]
+position = Vector2( -0.318541, 0.481506 )
+mass = 500.0
+can_sleep = false
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Gas Giant/Moon2/RigidBody2D"]
+frames = SubResource( 9 )
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gas Giant/Moon2/RigidBody2D"]
+shape = SubResource( 10 )
+
+[node name="Tundera" parent="." instance=ExtResource( 3 )]
+position = Vector2( 718.192, 723.919 )
+
+[node name="Barren Planet" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4130.01, 609.054 )
+
+[node name="Barren Planet2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 4025.86, 457.38 )
+
+[node name="Barren Planet3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 7947.66, 1129.98 )
+[connection signal="body_entered" from="Wormholes/WormholeEnter" to="Wormholes/WormholeEnter" method="_on_WormholeEnter_body_entered"]
+[connection signal="body_entered" from="Wormholes/WormholeExit" to="Wormholes/WormholeEnter" method="_on_WormholeExit_body_entered"]
+[connection signal="body_entered" from="Wormholes/Level End" to="Wormholes/Level End" method="_on_Level_End_body_entered"]

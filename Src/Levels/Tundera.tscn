@@ -1,0 +1,100 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Src/Levels/Planet.gd" type="Script" id=1]
+[ext_resource path="res://Src/Levels/Moon.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Textures/Planets/Barren3.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/Planets/Barren1.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Textures/Planets/Tundra.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Textures/Planets/Tundra2.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Planets/Barren.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/Planets/Tundra3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/Planets/Tundra1.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Textures/Planets/Barren2.png" type="Texture" id=10]
+[ext_resource path="res://Src/circleglow.shader" type="Shader" id=11]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 24.5
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 11 )
+shader_param/color = Color( 0.192157, 0.439216, 0.466667, 1 )
+shader_param/speed = 5.96
+shader_param/ring_duration = 7.6
+shader_param/brightness = 1.328
+shader_param/fade = 1.28
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 7.5
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="Tundera" type="Node2D"]
+position = Vector2( 86.7646, 969.094 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mode = 1
+mass = 750.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="RigidBody2D/CollisionShape2D"]
+frames = SubResource( 2 )
+playing = true
+
+[node name="Shader" type="AnimatedSprite" parent="RigidBody2D/CollisionShape2D/AnimatedSprite"]
+show_behind_parent = true
+material = SubResource( 3 )
+position = Vector2( -0.3341, 0.111343 )
+scale = Vector2( 1.116, 1.116 )
+frames = SubResource( 2 )
+frame = 3
+playing = true
+
+[node name="Moon" type="Node2D" parent="."]
+position = Vector2( -2.35971, 111.849 )
+script = ExtResource( 2 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Moon"]
+mass = 250.0
+linear_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Moon/RigidBody2D/CollisionShape2D"]
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 5 )
+
+[node name="Moon2" type="Node2D" parent="."]
+position = Vector2( -3.10886, 156.049 )
+script = ExtResource( 2 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Moon2"]
+mass = 250.0
+linear_damp = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon2/RigidBody2D"]
+shape = SubResource( 4 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Moon2/RigidBody2D/CollisionShape2D"]
+scale = Vector2( 0.3, 0.3 )
+frames = SubResource( 5 )

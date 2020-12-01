@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Textures/Planets/Barren_sec1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Textures/Planets/Barren_sec2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Planets/Barren_sec3.png" type="Texture" id=3]
+[ext_resource path="res://Src/Levels/Broken_Luna.gd" type="Script" id=4]
+
+[sub_resource type="MeshTexture" id=1]
+
+[node name="Broken_Luna" type="Node2D"]
+position = Vector2( 0.297302, 4.0879 )
+script = ExtResource( 4 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 0.503523, 6.41184 )
+linear_damp = 0.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D"]
+position = Vector2( 0, 0.0834274 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+normal_map = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D"]
+visible = false
+scale = Vector2( 1.5, 1.5 )
+build_mode = 1
+polygon = PoolVector2Array( -6.13844, 0.902337, -4.81411, 0.00841427, -3.52289, 0.968553, -1.76815, -1.18348, 0.0527973, 0.803012, 2.30416, 0.173957, 2.76767, -1.71321, 6.17782, -2.93822, 5.35011, -0.719966, 2.56902, 1.73004, -0.54315, 2.72329, -3.19181, 2.55775 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2( 2.75004, 11.2975 )
+linear_damp = 0.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D2"]
+position = Vector2( -4.00452, -11.9301 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 2 )
+normal_map = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D2"]
+visible = false
+position = Vector2( 2.00226, 6.09021 )
+scale = Vector2( 1.5, 1.5 )
+build_mode = 1
+polygon = PoolVector2Array( -11.7156, -12.5436, -11.517, -10.2922, -8.90142, -7.04764, -7.44466, -7.97467, -6.25276, -7.01453, -4.53114, -8.93481, -2.67707, -6.8821, -0.591257, -7.74292, -0.0946331, -9.03414, 3.71281, -11.12, 4.077, -13.4706, 2.38848, -14.0335, 1.46145, -13.3051, -0.0284176, -15.0929, -1.5514, -14.9605, -3.14059, -13.4375, -5.45817, -17.5098, -6.7825, -15.0929, -7.67642, -16.02, -8.50412, -13.4044, -11.1197, -13.6362 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2( -0.851028, -8.58726 )
+linear_damp = 0.0
+
+[node name="Sprite" type="Sprite" parent="RigidBody2D3"]
+position = Vector2( 0, 0.0834274 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+normal_map = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="RigidBody2D3"]
+visible = false
+position = Vector2( 10.0173, -0.250283 )
+scale = Vector2( 0.5, 0.5 )
+build_mode = 1
+polygon = PoolVector2Array( -44.5276, 13.5018, -42.6213, 9.08733, -35.799, 9.08733, -31.9866, 2.46569, -30.0804, 3.66962, -25.064, -1.94874, -18.5426, 9.38832, -13.7269, 4.47225, -7.70722, 4.37192, -2.49017, 9.38832, -1.18591, 6.98044, 2.82721, 8.28471, 1.7236, -0.0425105, -9.4128, -13.1855, -29.8797, -13.4865, -41.7184, -3.45366 )

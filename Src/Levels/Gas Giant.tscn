@@ -1,0 +1,73 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Textures/Planets/GasGiant.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant3.png" type="Texture" id=4]
+[ext_resource path="res://Src/Levels/Planet.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Textures/Planets/Ice1.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Textures/Planets/Ice3.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Textures/Planets/Ice.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Textures/Planets/Ice2.png" type="Texture" id=9]
+[ext_resource path="res://Src/Levels/Moon.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Textures/Planets/GasGiant1.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=13]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 6 ), ExtResource( 9 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=15]
+radius = 25.0
+
+[node name="Gas Giant" type="Node2D"]
+position = Vector2( 30.987, 682.503 )
+script = ExtResource( 5 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0.00388336, 0.035675 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 12 )
+playing = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 0.0640106, -0.0138779 )
+mode = 1
+mass = 2000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2( -0.0258179, -0.0373535 )
+scale = Vector2( 12.25, 12.25 )
+shape = SubResource( 13 )
+
+[node name="Moon" type="Node2D" parent="."]
+visible = false
+position = Vector2( 4.4247, 661.6 )
+script = ExtResource( 10 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Moon"]
+position = Vector2( -0.318541, 0.481506 )
+mass = 1000.0
+can_sleep = false
+linear_damp = 0.0
+angular_damp = 0.0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Moon/RigidBody2D"]
+frames = SubResource( 14 )
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moon/RigidBody2D"]
+shape = SubResource( 15 )
