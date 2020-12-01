@@ -1,0 +1,41 @@
+Parallax Space Background and 120+ Pixel Art Planets - Helianthus games
+https://helianthus-games.itch.io/
+
+Space GUI in Various Colors - Rawdanitsu
+https://opengameart.org/content/space-gui-in-various-colors
+
+Free Celestial Objects Pixel Art Pack - N2D
+https://norma-2d.itch.io/celestial-objects-pixel-art-pack
+
+Bubble Emotes - Kick-in-Teeth
+https://kicked-in-teeth.itch.io/emoticons
+
+Silver font - Poppy Works
+https://poppyworks.itch.io/silver
+
+Pixel Buttons - Yusa Studios
+https://yusastudios.itch.io/
+
+Magical Animation Effects - Pimen
+https://pimen.itch.io/magical-animation-effects
+
+Menu Sound FX Pack - hitrison
+https://hitrison.itch.io/menu-sfx-pack
+
+Space Music Pack - Goose Ninja
+https://gooseninja.itch.io/space-music-pack
+
+Screen Transition Masks - GDQuest
+https://github.com/GDQuest/godot-demos
+
+Circle Shader - KidsCanCode
+
+Chromatic Abberation Shader -uHeartBeast
+
+Wormhole shader - Ombarus
+
+Shockwave shader - Nolkaloid
+
+the shield, energy circle, rewind, and redirect powerup assets were made by Tyler Covault
+
+The KTGames logo was created by Alina Talcott
